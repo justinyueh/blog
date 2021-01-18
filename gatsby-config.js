@@ -75,5 +75,16 @@ module.exports = {
         ], // Add or remove icon sizes as desired
       },
     },
+    {
+      resolve: `gatsby-plugin-gtag`,
+      options: {
+        // your google analytics tracking id
+        trackingId: `G-ZFW6HHKNR2`,
+        // Puts tracking script in the head instead of the body
+        // head: false,
+        // enable ip anonymization
+        anonymize: true,
+      },
+    },
   ],
 };
