@@ -1,5 +1,7 @@
+const env = process.env.NODE_ENV || 'production';
+
 require("dotenv").config({
-  path: `.env.${process.env.NODE_ENV}`,
+  path: `.env.${env}`,
 });
 
 const contentfulConfig = {
@@ -48,6 +50,30 @@ module.exports = {
     {
       resolve: "gatsby-source-contentful",
       options: contentfulConfig,
+    },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Justin Yueh's Blog`,
+        short_name: `Justin Yueh`,
+        start_url: `/`,
+        background_color: `#f7f0eb`,
+        theme_color: `#a2466c`,
+        display: `standalone`,
+        icons: [
+          {
+            src: `/icon-192x192.png`,
+            sizes: `192x192`,
+            type: `image/png`,
+          },
+          {
+            src: `/icon-512x512.png`,
+            sizes: `512x512`,
+            type: `image/png`,
+            purpose: `any maskable`,
+          },
+        ], // Add or remove icon sizes as desired
+      },
     },
   ],
 };

@@ -11,7 +11,11 @@ class BlogIndex extends React.Component {
     return (
       <Layout location={this.props.location}>
         <div style={{ background: '#fff' }}>
-          <Helmet title={siteTitle} />
+          <Helmet defer={false}>
+            <html lang="en" />
+            <title>{siteTitle}</title>
+            <meta name="Description" content="Justin Yueh's Blog."/>
+          </Helmet>
           <div className="wrapper">
             <div>Can't find the page.</div>
           </div>
