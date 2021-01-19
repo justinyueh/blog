@@ -17,19 +17,17 @@ class BlogIndex extends React.Component {
           <Helmet defer={false}>
             <html lang="en" />
             <title>{siteTitle}</title>
-            <meta name="Description" content="Justin Yueh's Blog."/>
+            <meta name="Description" content="Justin Yueh's Blog." />
           </Helmet>
           <div className={styles.hero}>Blog</div>
           <div className="wrapper">
             <h2 className="section-headline">Recent articles</h2>
             <ul className="article-list">
-              {posts.map(({ node }) => {
-                return (
-                  <li key={node.slug}>
-                    <ArticlePreview article={node} />
-                  </li>
-                )
-              })}
+              {posts.map(({ node }) => (
+                <li key={node.slug}>
+                  <ArticlePreview article={node} />
+                </li>
+              ))}
             </ul>
           </div>
         </div>
@@ -46,7 +44,7 @@ export const pageQuery = graphql`
       siteMetadata {
         title
       }
-    }  
+    }
     allContentfulBlogPost(sort: { fields: [publishDate], order: DESC }) {
       edges {
         node {

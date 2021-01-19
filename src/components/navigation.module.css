@@ -1,12 +1,12 @@
 .navigation {
   display: flex;
-  justify-content: center;
-  list-style: none;
-  padding: 0;
-  margin: 0;
   height: 20vh;
   max-height: 100px;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
   font-size: 1.25em;
+  list-style: none;
 }
 
 .navigationItem {
