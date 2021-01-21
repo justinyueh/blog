@@ -1,16 +1,16 @@
-import React from 'react'
-import { graphql } from 'gatsby'
-import get from 'lodash/get'
-import { Helmet } from 'react-helmet'
-import Hero from '../components/hero'
-import Layout from '../components/layout'
-import ArticlePreview from '../components/article-preview'
+import { graphql } from 'gatsby';
+import get from 'lodash/get';
+import React from 'react';
+import { Helmet } from 'react-helmet';
+import ArticlePreview from '../components/article-preview';
+import Hero from '../components/hero';
+import Layout from '../components/layout';
 
 class RootIndex extends React.Component {
   render() {
-    const siteTitle = get(this, 'props.data.site.siteMetadata.title')
-    const posts = get(this, 'props.data.allContentfulBlogPost.edges')
-    const [author] = get(this, 'props.data.allContentfulPerson.edges')
+    const siteTitle = get(this, 'props.data.site.siteMetadata.title');
+    const posts = get(this, 'props.data.allContentfulBlogPost.edges');
+    const [author] = get(this, 'props.data.allContentfulPerson.edges');
 
     return (
       <Layout location={this.props.location}>
@@ -33,11 +33,11 @@ class RootIndex extends React.Component {
           </div>
         </div>
       </Layout>
-    )
+    );
   }
 }
 
-export default RootIndex
+export default RootIndex;
 
 export const pageQuery = graphql`
   query HomeQuery {
@@ -90,4 +90,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;
