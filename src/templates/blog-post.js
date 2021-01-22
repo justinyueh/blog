@@ -14,7 +14,10 @@ class BlogPostTemplate extends React.Component {
     return (
       <Layout location={this.props.location}>
         <div style={{ background: '#fff' }}>
-          <Helmet title={`${post.title} | ${siteTitle}`} />
+          <Helmet title={`${post.title} | ${siteTitle}`}>
+            <html lang="en" />
+            <meta name="description" content={post.description.description} />
+          </Helmet>
           <div className={heroStyles.hero}>
             <Img
               className={heroStyles.heroImage}
@@ -47,6 +50,11 @@ export default BlogPostTemplate;
 
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
+    site {
+      siteMetadata {
+        title
+      }
+    }
     contentfulBlogPost(slug: { eq: $slug }) {
       title
       publishDate(formatString: "MMMM Do, YYYY")
@@ -59,6 +67,9 @@ export const pageQuery = graphql`
         childMarkdownRemark {
           html
         }
+      }
+      description {
+        description
       }
     }
   }
